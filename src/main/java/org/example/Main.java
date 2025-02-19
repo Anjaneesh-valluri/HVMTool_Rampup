@@ -18,6 +18,7 @@ public class Main{
                 Tax tax = new Tax(ac,amount);
                 double out = tax.currBalence();
                 System.out.println("Thank you for conformation, \nProcessing your transaction, please collect your cash.........\nHere is your balence: "+ out);
+                tax.displayTax();
                 break;
             default:
                 System.out.println("Wrong output");
