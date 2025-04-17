@@ -13,7 +13,20 @@ public class Main{
         switch(opt){
             case 1:
                 //here I am calling the child class (Tax) using abstract class Account -- abstraction (implementation)
-                Account tax2= new Tax(amount);
+                System.err.println("Do you want to calculate tax using \n1. New tax scheme\n2. Old tax scheme");
+                int input = sc.nextInt(); 
+                switch(input){
+                    case 1:
+                        Account tax2 = new Tax(ac, true);
+                        break;
+                    case 2:
+                        Account tax3 = new Tax(ac, false);
+                        break;
+                    default:
+                        System.out.println("Sorry wrong output");
+                        break;
+
+                }
                 break;
             case 2:
                 Account tax = new Tax(ac,amount);

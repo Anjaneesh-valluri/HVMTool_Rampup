@@ -3,7 +3,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 public class Tax extends Account{
 
-    int ac, tax=10;
+    int ac, tax=10 , new_tax = 9;
     double amount;
     LocalDateTime date = LocalDateTime.now();
     DateTimeFormatter dateTime = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
@@ -14,14 +14,22 @@ public class Tax extends Account{
         this.amount= amount;
     }
     //here i have used constructor overloading - a type of polymorphism
-    public  Tax(double amount){
+    public  Tax(double amount , boolean newTax){
         this.amount = amount;
-        displayTax();
+        if(newTax)
+            displayTax(new_tax);
+        else
+            displayTax();
     }
+    //Here I am overriding the abstract method that is declared in the parent class
     @Override
     public void displayTax(){
         amount = getTax();
         System.out.println("Tax payable : "+tax+"% \n--------Here is the amount after deduction : "+amount+" --------");
+    }
+    //Here I have implemented method overloading of displayTax method
+    public void displayTax(int newTax){
+        System.out.println("Your tax based on new tax slab : "+ (amount * new_tax/100) + ", Which in percent is : "+new_tax+" %");
     }
     public double getTax(){
         amount = amount - (amount * tax/100);
