@@ -6,6 +6,6 @@ public abstract class Account {
     double balence = 10000;
 
     public abstract double currBalence();
-
+    public abstract void displayTax();
 }
 
