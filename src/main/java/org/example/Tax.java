@@ -37,7 +37,8 @@ public class Tax extends Account{
     }
     @Override
     public double currBalence(){
-        int temp = super.acc;
+        double balence = super.getBalence();
+        int temp = super.getAcc();
         if((temp == ac)&&(balence>=amount)){
             getTax();
             System.out.println("Here is the date and time of transaction: "+currDate);
